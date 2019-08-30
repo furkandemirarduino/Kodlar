@@ -1,0 +1,35 @@
+int ledk = 2;  //kod Furkan Demir Tarafından Yazılmıştı.
+int ledy = 3; //Ledlerin Bağlandığı Pin
+int ledm= 4; 
+int pot = A0;  
+ 
+void setup() {
+  pinMode(ledk, OUTPUT); 
+  pinMode(ledy, OUTPUT); 
+  pinMode(ledm, OUTPUT);
+  Serial.begin(9600);
+}
+ 
+void loop() {
+  int potansiyometre= analogRead(pot);
+  pot = map(potansiyometre,0,1023,0,4);
+    if (potansiyometre=1){
+    digitalWrite(ledk, HIGH);
+    digitalWrite(ledy, LOW);
+    digitalWrite(ledm, LOW);
+  }
+  if (potansiyometre=2){
+    digitalWrite(ledk, LOW);
+    digitalWrite(ledy, HIGH);
+    digitalWrite(ledm, LOW);
+  }
+  if (potansiyometre=3){
+    digitalWrite(ledk, LOW);
+    digitalWrite(ledy, LOW);
+    digitalWrite(ledm, HIGH);
+  }
+  if (potansiyometre=4){
+    digitalWrite(ledk, HIGH);
+    digitalWrite(ledy, HIGH);
+    digitalWrite(ledm, HIGH);
+  }
